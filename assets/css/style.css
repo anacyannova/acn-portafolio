@@ -6,9 +6,9 @@
     --fondo-secundario: #1A1A2E;
     /* Textos */
     --texto-principal: #F5F7FA;
-    --texto-apagado: #4A5568;
+    --texto-apagado: #5270A3;
     /* Acentos */
-    --acento: #4D9FEC;
+    --acento: #0084FF;
     --acento-apagado: #709AC4;
     /* Elementos */
     --tag: #6B9FD4;
@@ -255,7 +255,7 @@ main {
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
+    gap: 9px;
 }
 
 .project-media {
@@ -377,13 +377,12 @@ blockquote {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 9px;
 }
 
 .service-card {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .service-card img {
@@ -391,19 +390,25 @@ blockquote {
     display: block;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    transition: filter 0.3s;
+    transition: blur (0px) brightness (1);
+    transition: filter 0.4s ease;
 }
 
 .service-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(14, 17, 23, 0.88);
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.2) 60%,
+        transparent 100%
+    );
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 30px;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
 }
 
 .service-card:hover .service-overlay {
@@ -411,12 +416,12 @@ blockquote {
 }
 
 .service-card:hover img {
-    filter: brightness(0.4);
+    filter: blur(8px) brightness(0.85);
 }
 
 .service-overlay h3 {
     font-size: 30px;
-    font-weight: lighter;
+    font-weight: 400;
     font-family: var(--font-titulo);
     letter-spacing: 3%;
     color: var(--texto-principal);
